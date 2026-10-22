@@ -1,0 +1,51 @@
+{
+  "name": "whale-girl",
+  "version": "0.2.4",
+  "type": "module",
+  "description": "DSH Web GUI 内的桌面宠物（QQ 宠物形态）",
+  "main": "lib/index.mjs",
+  "icon": "./icon.png",
+  "files": [
+    "lib/index.mjs",
+    "lib/client.js",
+    "lib/client",
+    "lib/src",
+    "lib/assets/characters",
+    "lib/assets/manifest.json",
+    "cordis.patch.yml",
+    "icon.png",
+    "README.zh.md"
+  ],
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "scripts": {
+    "gates": "node scripts/gates/run.mjs",
+    "gates:ci": "node scripts/gates/run.mjs --group ci",
+    "test": "node --test 'tests/*.test.mjs'",
+    "build:client": "node scripts/build-client.mjs",
+    "check:client": "node scripts/build-client.mjs --check"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lhg-dsh-plugins/lhg-dsh-whale-girl"
+  }
+}
